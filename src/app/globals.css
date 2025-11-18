@@ -1,0 +1,130 @@
+@import "tailwindcss";
+
+@theme inline {
+  /* VistaTrade AI - Custom Theme */
+  
+  /* Colors */
+  --color-neon-blue: #00C2FF;
+  --color-neon-blue-dark: #0080FF;
+  --color-black: #0A0A0A;
+  --color-titanium: #1A1A1A;
+  --color-dark-gray: #2A2A2A;
+  --color-success: #00FF88;
+  --color-danger: #FF3366;
+  --color-warning: #FFB800;
+  
+  /* Fonts */
+  --font-inter: "Inter", system-ui, -apple-system, sans-serif;
+  
+  /* Shadows */
+  --shadow-neon: 0 0 20px rgba(0, 194, 255, 0.3);
+  --shadow-glow: 0 0 40px rgba(0, 194, 255, 0.5);
+}
+
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-inter);
+  background-color: var(--color-black);
+  color: white;
+  overflow-x: hidden;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-titanium);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-dark-gray);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-neon-blue);
+}
+
+/* Animations */
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(0, 194, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(0, 194, 255, 0.6);
+  }
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite;
+}
+
+@keyframes pulse-neon {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.animate-pulse-neon {
+  animation: pulse-neon 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Gradient Text */
+.gradient-text {
+  background: linear-gradient(to right, var(--color-neon-blue), var(--color-neon-blue-dark));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Neon Border */
+.neon-border {
+  border: 2px solid var(--color-neon-blue);
+  box-shadow: 0 0 20px rgba(0, 194, 255, 0.3),
+              inset 0 0 20px rgba(0, 194, 255, 0.1);
+}
+
+/* Glass Effect */
+.glass-effect {
+  background: rgba(26, 26, 26, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Custom Utilities */
+.text-shadow-neon {
+  text-shadow: 0 0 10px rgba(0, 194, 255, 0.5);
+}
+
+.bg-gradient-neon {
+  background: linear-gradient(135deg, var(--color-neon-blue) 0%, var(--color-neon-blue-dark) 100%);
+}
+
+/* Transitions */
+.transition-smooth {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Focus States */
+*:focus-visible {
+  outline: 2px solid var(--color-neon-blue);
+  outline-offset: 2px;
+}
+
+/* Selection */
+::selection {
+  background-color: var(--color-neon-blue);
+  color: white;
+}
